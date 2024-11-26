@@ -22,10 +22,14 @@ class TaskList(LoginRequiredMixin, ListView):
     model = Task
     context_object_name = 'tasks'
 
+    def get_queryset(self):
+        # Only show tasks for the logged-in user
+        return Task.objects.filter(user=self.request.user)
+
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['tasks'] = context['tasks'].filter(user=self.request.user)
-        context['count'] = context['tasks'].filter(complete=False).count()
+        # Tasks and count for the logged-in user only
+        context['count'] = self.get_queryset().filter(complete=False).count()
         return context
 
 class TaskDetail(LoginRequiredMixin, DetailView):
@@ -33,18 +37,34 @@ class TaskDetail(LoginRequiredMixin, DetailView):
     context_object_name = 'task'
     template_name = 'base/task.html'
 
-class TaskCreate(LoginRequiredMixin, CreateView):
-    model = Task
-    fields = '__all__'
-    success_url = reverse_lazy('tasks')
+    def get_queryset(self):
+        # Restrict task details to tasks owned by the logged-in user
+        return Task.objects.filter(user=self.request.user)
 
 class TaskUpdate(LoginRequiredMixin, UpdateView):
     model = Task
-    fields = '__all__'
+    fields = ['title', 'description', 'complete']
     success_url = reverse_lazy('tasks')
+
+    def get_queryset(self):
+        # Restrict updates to tasks owned by the logged-in user
+        return Task.objects.filter(user=self.request.user)
 
 class DeleteView(LoginRequiredMixin, DeleteView):
     model = Task
-    context_object_name ='task'
+    context_object_name = 'task'
     success_url = reverse_lazy('tasks')
 
+    def get_queryset(self):
+        # Restrict deletions to tasks owned by the logged-in user
+        return Task.objects.filter(user=self.request.user)
+
+class TaskCreate(LoginRequiredMixin, CreateView):
+    model = Task
+    fields = ['title', 'description', 'complete']  # Exclude the 'user' field
+    success_url = reverse_lazy('tasks')
+
+    def form_valid(self, form):
+        # Assign the logged-in user as the task owner
+        form.instance.user = self.request.user
+        return super().form_valid(form)

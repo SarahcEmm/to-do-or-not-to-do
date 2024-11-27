@@ -5,7 +5,10 @@ from django.contrib.auth.views import LoginView
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import login
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib import messages
+from django.shortcuts import redirect
 from .models import Task
+
 
 # Custom LoginView
 class CustomLoginView(LoginView):
@@ -14,7 +17,10 @@ class CustomLoginView(LoginView):
     redirect_authenticated_user = True
 
     def get_success_url(self):
+        messages.success(self.request, 'You have successfully logged in!')
         return reverse_lazy('tasks')
+
+
 
 
 # Register Page to handle user sign-up

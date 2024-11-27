@@ -3,9 +3,7 @@
 
 body {
     background-color: #ff9a00;
-    font-family: Lexend, sans-serif;
-
-   
+    font-family: Lexend, sans-serif; 
     display: flex;
     justify-content: center; 
     align-items: center;     
@@ -86,3 +84,22 @@ header {
 }
 
 
+.messages-container {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1050; /* Bootstrap z-index for modals and alerts */
+}
+
+.alert {
+    margin: 0 auto;
+    width: 90%;
+    max-width: 600px;
+}
+
+.messages-container2 {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1050; /* Bootstrap z-index for modals and alerts */
+}

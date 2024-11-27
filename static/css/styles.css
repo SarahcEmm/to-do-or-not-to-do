@@ -1,0 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@100..900&family=Lexend:wght@100..900&display=swap');
+
+
+body {
+    background-color: #ff9a00;
+    font-family: Lexend, sans-serif;
+}
+
+.container {
+    margin: auto;
+    max-width: 550px;
+    padding: 20px;
+    background-color: #FFFAF1;
+    border-radius: 10px;
+    box-shadow: 0 6px 6px rgba(0, 0, 0, 0.1);
+}

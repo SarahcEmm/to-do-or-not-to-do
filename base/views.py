@@ -1,16 +1,13 @@
 from django.shortcuts import render, redirect
-from django.views.generic.list import ListView
-from django.views.generic.detail import DetailView
-from django.views.generic.edit import CreateView, UpdateView, DeleteView, FormView
+from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView, FormView
 from django.urls import reverse_lazy
 from django.contrib.auth.views import LoginView
-from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.forms import UserCreationForm
-from django.views.generic.list import ListView
 from django.contrib.auth import login
+from django.contrib.auth.mixins import LoginRequiredMixin
 from .models import Task
 
-
+# Custom LoginView
 class CustomLoginView(LoginView):
     template_name = 'base/login.html'
     fields = '__all__'
@@ -19,6 +16,8 @@ class CustomLoginView(LoginView):
     def get_success_url(self):
         return reverse_lazy('tasks')
 
+
+# Register Page to handle user sign-up
 class RegisterPage(FormView):
     template_name = 'base/register.html'
     form_class = UserCreationForm
@@ -37,9 +36,7 @@ class RegisterPage(FormView):
         return super(RegisterPage, self).get(*args, **kwargs)
 
 
-
-
-
+# Task List to display tasks for the logged-in user with optional search
 class TaskList(LoginRequiredMixin, ListView):
     model = Task
     context_object_name = 'tasks'
@@ -62,9 +59,15 @@ class TaskList(LoginRequiredMixin, ListView):
         # Pass search input back to the template for form rendering
         search_input = self.request.GET.get('search-area') or ''
         context['search_input'] = search_input
-        
+
+        # Count of incomplete tasks
+        incomplete_tasks = Task.objects.filter(user=self.request.user, complete=False)
+        context['count'] = incomplete_tasks.count()
+
         return context
 
+
+# Task Detail to view details of a task
 class TaskDetail(LoginRequiredMixin, DetailView):
     model = Task
     context_object_name = 'task'
@@ -74,6 +77,8 @@ class TaskDetail(LoginRequiredMixin, DetailView):
         # Restrict task details to tasks owned by the logged-in user
         return Task.objects.filter(user=self.request.user)
 
+
+# Task Update to allow task modifications
 class TaskUpdate(LoginRequiredMixin, UpdateView):
     model = Task
     fields = ['title', 'description', 'complete']
@@ -83,7 +88,9 @@ class TaskUpdate(LoginRequiredMixin, UpdateView):
         # Restrict updates to tasks owned by the logged-in user
         return Task.objects.filter(user=self.request.user)
 
-class DeleteView(LoginRequiredMixin, DeleteView):
+
+# Task Delete to delete a task
+class TaskDelete(LoginRequiredMixin, DeleteView):
     model = Task
     context_object_name = 'task'
     success_url = reverse_lazy('tasks')
@@ -92,6 +99,8 @@ class DeleteView(LoginRequiredMixin, DeleteView):
         # Restrict deletions to tasks owned by the logged-in user
         return Task.objects.filter(user=self.request.user)
 
+
+# Task Create to allow creation of new tasks
 class TaskCreate(LoginRequiredMixin, CreateView):
     model = Task
     fields = ['title', 'description', 'complete']  # Exclude the 'user' field

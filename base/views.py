@@ -6,8 +6,10 @@ from django.urls import reverse_lazy
 from django.contrib.auth.views import LoginView
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.forms import UserCreationForm
+from django.views.generic.list import ListView
 from django.contrib.auth import login
 from .models import Task
+
 
 class CustomLoginView(LoginView):
     template_name = 'base/login.html'
@@ -43,13 +45,24 @@ class TaskList(LoginRequiredMixin, ListView):
     context_object_name = 'tasks'
 
     def get_queryset(self):
-        # Only show tasks for the logged-in user
-        return Task.objects.filter(user=self.request.user)
+        # Fetch tasks for the logged-in user
+        user = self.request.user
+        queryset = Task.objects.filter(user=user)
+        
+        # Apply search filter if 'search-area' parameter is present
+        search_input = self.request.GET.get('search-area') or ''
+        if search_input:
+            queryset = queryset.filter(title__icontains=search_input)
+        
+        return queryset
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        # Tasks and count for the logged-in user only
-        context['count'] = self.get_queryset().filter(complete=False).count()
+        
+        # Pass search input back to the template for form rendering
+        search_input = self.request.GET.get('search-area') or ''
+        context['search_input'] = search_input
+        
         return context
 
 class TaskDetail(LoginRequiredMixin, DetailView):

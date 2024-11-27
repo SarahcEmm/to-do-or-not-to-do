@@ -4,8 +4,14 @@
 body {
     background-color: #ff9a00;
     font-family: Lexend, sans-serif;
-}
 
+   
+    display: flex;
+    justify-content: center; 
+    align-items: center;     
+    height: 100vh;           
+    margin: 0; 
+}
 .container {
     margin: auto;
     max-width: 550px;
@@ -21,62 +27,62 @@ header {
     border-radius: 5px 5px 0 0;
 
 }
-/* Add this to your CSS (for example in `styles.css`) */
+
 .task-wrapper1 {
-    display: flex;               /* Use flexbox for layout */
-    justify-content: space-between;  /* Space between task and button */
-    align-items: center;         /* Align items vertically */
-    padding: 10px;               /* Optional: add some padding for spacing */
-    border-bottom: 1px solid #ddd; /* Optional: add a line to separate tasks */
+    display: flex;               
+    justify-content: space-between;  
+    align-items: center;         
+    padding: 10px;               
+    border-bottom: 1px solid #ddd; 
 }
 
 .task-title {
-    flex-grow: 1;                /* Allow task title to take remaining space */
+    flex-grow: 1;                
 }
 
 .delete-button button {
-    background-color: #ff6347;   /* Red color for the delete button */
-    color: white;                /* White text color */
-    border: none;                /* Remove button border */
-    padding: 5px 10px;           /* Add padding for the button */
-    cursor: pointer;             /* Show pointer on hover */
-    border-radius: 4px;          /* Optional: rounded corners for the button */
-    transition: background-color 0.3s ease; /* Smooth transition */
+    background-color: #ff6347;   
+    color: white;                
+    border: none;                
+    padding: 5px 10px;           
+    cursor: pointer;             
+    border-radius: 4px;          
+    transition: background-color 0.3s ease; 
 }
 
 
 .delete-button button:hover {
-    background-color: #ff4500;   /* Darker red color on hover */
+    background-color: #ff4500;   
 }
 .header {
-    position: relative;  /* Makes the header a positioned container for absolute positioning */
-    padding: 20px;       /* Adjust padding as needed */
-    background-color: #f8f9fa; /* Optional: Light background for the header */
+    position: relative;  
+    padding: 20px;       
+    background-color: #f8f9fa; 
 }
 .header-left {
     display: inline-block;
     padding: 10px;
 }
 .logout-form {
-    position: absolute; /* Position the form absolutely inside the header */
-    top: 20px;          /* Distance from the top of the header */
-    right: 20px;        /* Distance from the right of the header */
+    position: absolute; 
+    top: 20px;          
+    right: 20px;        
 }
 
-/* Styling for the logout button */
+
 .logout-button {
-    background-color: #007bff; /* Blue color for the logout button */
-    color: white;               /* White text color */
-    border: none;               /* Remove button border */
-    padding: 10px 15px;         /* Add padding */
-    cursor: pointer;           /* Pointer cursor on hover */
-    border-radius: 4px;         /* Rounded corners for the button */
-    transition: background-color 0.3s ease; /* Smooth transition */
+    background-color: #007bff; 
+    color: white;               
+    border: none;               
+    padding: 10px 15px;         
+    cursor: pointer;           
+    border-radius: 4px;         
+    transition: background-color 0.3s ease; 
 }
 
-/* Hover effect for the logout button */
+
 .logout-button:hover {
-    background-color: #0056b3; /* Darker blue color on hover */
+    background-color: #0056b3; 
 }
 
 

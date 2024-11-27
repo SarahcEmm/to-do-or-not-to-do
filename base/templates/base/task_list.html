@@ -8,7 +8,6 @@
     </div>
 
     {% if request.user.is_authenticated %}
-    <!-- Logout button positioned to the top right -->
     <form method="post" action="{% url 'logout' %}" class="logout-form">
         {% csrf_token %}
         <button class="logout-button" type="submit">Logout</button>
@@ -17,6 +16,13 @@
     <a href="{% url 'login' %}">Login</a>
     {% endif %}
 </div>
+<div class="search-wrapper">
+    <a href="{% url 'task-create' %}">Add Task</a>
+    <form method="GET">
+        <input type="text" placeholder="Find Task" name="'search-area" value="{{search_input}}">
+        <input type="submit" value="Search">
+    </form></div>
+
 
 <!-- Task List -->
 <div class="task-wrapper">

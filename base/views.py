@@ -91,12 +91,14 @@ class TaskUpdate(LoginRequiredMixin, UpdateView):
 
 # Task Delete to delete a task
 class TaskDelete(LoginRequiredMixin, DeleteView):
-    model = Task
-    context_object_name = 'task'
-    success_url = reverse_lazy('tasks')
-
+    model = Task  # Specify the model for the DeleteView
+    context_object_name = 'task'  # Context variable to access the object in the template
+    success_url = reverse_lazy('tasks')  # Redirect after successful delete
+    
     def get_queryset(self):
-        # Restrict deletions to tasks owned by the logged-in user
+        """
+        Restrict the deletion to tasks owned by the logged-in user.
+        """
         return Task.objects.filter(user=self.request.user)
 
 

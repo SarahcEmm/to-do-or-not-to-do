@@ -1,11 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
+{% extends 'base/main.html' %}
+{% block content %}
 {% if request.user.is_authenticated %}
 
 <p>{{request.user}}</p>
@@ -35,7 +29,6 @@
         {% for task in object_list %}
         <tr>
             <td>{{ task.title }}</td>
-            <td><a href="{% url 'task' task.id %}">View</a></td>
             <td><a href="{% url 'task-update' task.id %}">Edit</a></td>
             <td><a href="{% url 'task-delete' task.id %}">Delete</a></td>
         </tr>
@@ -44,5 +37,6 @@
         {% endfor %}
     </table>
 
-</body>
-</html>
+
+{% endblock content %}
+

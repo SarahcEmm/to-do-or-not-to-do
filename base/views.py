@@ -7,6 +7,7 @@ from django.contrib.auth import login
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib import messages
 from django.shortcuts import redirect
+
 from .models import Task
 
 
@@ -105,6 +106,7 @@ class TaskDelete(LoginRequiredMixin, DeleteView):
         """
         Restrict the deletion to tasks owned by the logged-in user.
         """
+        messages.success(self.request, 'You have successfully deleted the task!')
         return Task.objects.filter(user=self.request.user)
 
 

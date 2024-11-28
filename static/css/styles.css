@@ -83,23 +83,38 @@ header {
     background-color: #0056b3; 
 }
 
-
-.messages-container {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    z-index: 1050; /* Bootstrap z-index for modals and alerts */
+.message {
+    position: fixed; /* Fix the position relative to the viewport */
+    top: 20px; /* Place it 20px from the top */
+    left: 50%; /* Align horizontally to the center */
+    transform: translateX(-50%); /* Adjust positioning to truly center it */
+    max-width: 550px; /* Set a maximum width */
+    width: 90%; /* Allow flexibility for smaller screens */
+    background-color: #00ff4c;
+    border-radius: 10px;
+    box-shadow: 0 6px 6px rgba(0, 0, 0, 0.1);
+    z-index: 1000; /* Ensure it appears above other content */
+    padding: 20px;
+    text-align: center; /* Center the text content */
 }
 
-.alert {
-    margin: 0 auto;
-    width: 90%;
-    max-width: 600px;
+.message.success {
+    border-color: #28a745;
+    background-color: #00ff3c;
+    color: #155724;
 }
 
-.messages-container2 {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    z-index: 1050; /* Bootstrap z-index for modals and alerts */
+.message.error {
+    border-color: #dc3545;
+    background-color: #f8d7da;
+    color: #721c24;
+}
+
+.message .close-btn {
+    background: none;
+    border: none;
+    font-size: 16px;
+    color: inherit;
+    cursor: pointer;
+    margin-left: 10px;
 }

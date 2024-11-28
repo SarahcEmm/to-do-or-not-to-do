@@ -38,59 +38,29 @@ I knew very early on how I wanted the application to look. It was literally a bo
 
 ### Brand Identity
 
-A big part of User Interface Design is the brand identity. This is how users recognise the site and build trust. I established this identity by first creating a brand name. I used the generative powers of AI by asking Perplexity.com to create names for a task management website. The responses from Perplexity were varied and most included alliterative names. Both of my previous projects with CI have featured alliterative names so I wanted to steer clear of that this time. The name Task Nest was featured and this became the name I started referring to my project as.
-![Design Miro Board](https://github.com/alexcurnow96/portfolio-project/blob/main/documentation/planning/design-ideas.png)
-
-The brand colours are also a big part of the brand identity of Task Nest. My market research had led to me being pulled to a monochrome colour scheme. The different shades of one colour being used throughout the site made it look more professional for the use of development teams and individuals.
-
-Upon looking into brand colours, I found that blue is a "harmonious colour that is stress relieving and does not disturb the focus of the brain, resulting in more efficient work being delivered." (https://www.haiken.com/insights/the-top-colours-for-your-office-to-increase-productivity) For this reason I chose an all blue colour scheme.
-"[Colour Scheme](https://github.com/alexcurnow96/portfolio-project/blob/main/documentation/planning/colour-scheme.jpeg)
-
-I then used Adobe Firefly to create a logo for the website that would feature on the nav bar. This would provide an added layer of trust to the site and become a recognisable part of the brand. I used the checkpoints from the to-do list inside of a birds nest to make it clear that this logo belongs to the brand.
-![Logo](https://github.com/alexcurnow96/portfolio-project/blob/main/documentation/planning/logo.jpg)
-
-The typography came at the end of the design process as I wanted it to follow the professionalism of the rest of the branding design. I started by looking at www.fontpair.co, and choosing a series of font pairings that I thought could work for Task Nest. When looking at the final choices, I noticed that they all featured "Karla" as a heading font. This became the natural heading font, and the pairing of "Inconsolata" went well for the paragraph elements. These fonts were then procured from Google Fonts (fonts.google.com).
-![Font Pairing](https://github.com/alexcurnow96/portfolio-project/blob/main/documentation/planning/font-pairing.png)
+Orange is my favourite colour and I thought it looked pleasing to the eye and lighter peach colour in the container helped with contrast and readability. I decided to stick with a simple font (lexend) to compliment my basic design. 
 
 ### Interaction Design
 
-The interactivity of a website is also incredibly important. This includes the basic interaction, use of buttons, drag and drop, user creation, but also more complex interactions within a site. For this reason, I researched the 10 Usability Heuristics and how to assess where a design is falling short and where it is excelling. This also looks into what aspects of design can be sacrificed and what needs to be prioritised.
+The application has limited interaction by design. It is a simple to use website and there was very little need for interaction beyond the basics. 
 
-The most important heuristics for my project are user control and freedom, consistency and standards, and recognition rather than recall. These are all prioritising the users ability to move throughout the site with clearly marked actions. The CRUD functionality should be clearly marked and, if a user makes a mistake by clicking on an action when they do not want to, there should be clear signposts to return. This should be the same on every page throughout the site.
-
-![Userflow Diagram](https://github.com/alexcurnow96/portfolio-project/blob/main/documentation/planning/userflow-diagram.png)
 
 ### Accessibility
 
-Throughout this course, the accessibility of users has been highlighted. For this reason, I wanted to plan for accessibility issues before I had begun coding my site. This would make sure my site was useable by everyone who had need to use it. This was a relatively easy portion of the design as I didn't want to complicate accessibility. This should be at the forefront of my design and should not be thought of as extra complications to the design.
-
-The accessibility designs I made were to use large buttons and large font throughout the site, to implement a light/dark toggle mode for those who wish to use the site on either setting, and an overall simple app functionality with an easy to follow user flow for all users.
-
-These would all be planned for and tested at the end of my project to ensure the site is functional for all users.
+The application was tried and tested for full functionality and due to the simplistic design there were very few accessability issues with the application.
 
 ## User Experience (UX)
 
 ### Database Planning
 
 I began my database design by sketching out my models and an entity relationship diagram. Because of my previous experience in SQL, I began by following the principles of MySQL and used integer, varchar, and set. This helped me understand what I was going to create in the backend of this site.
-![Sketched ERD](https://github.com/alexcurnow96/portfolio-project/blob/main/documentation/planning/sketched-erd.png)
+![ERD](staticfiles/admin/img/ERD.png)
 
-I then began using LucidChart (www.lucidchart.com) to create an actual ERD to be used in my project. This included Users, Tasks and Subtasks with primary keys and foreign keys. This allowed me to create simple models with simple connections.
-![Lucidchart diagram](https://github.com/alexcurnow96/portfolio-project/blob/main/documentation/planning/tasknest.png)
-
-I then discovered that you could import the user model from Django AllAuth, and decided to use that functionality for the Users model.
 
 ### The Purpose and Target Audience
 
-My target audience are individuals within teams in a project. There is also a secondary audience of just individuals who want to achieve tasks generally.
+My target audience is everyone that wishes to make a to do list. They are very useful and I find the ones built into phones etc are finicky to use and not user friendly.
 
-The purpose of this website is related to project management. I wanted to create something that would enable productivity and streamline working practices. I am also aware that this site can be used by anyone who would like to log their tasks and be more productive though.
-
-### User Journeys
-
-All users journey through a website, and I needed to keep in mind the path users would take on mine. I wanted to keep the site as simple as possible for the user to navigate. This reduced the amount of pages I had, and reduced the amount of decisions for the user to make.
-
-The CRUD functionality was the main focus of the site. This included the ability to create tasks, read the tasks, update the tasks, and delete the tasks when completed.
 
 ### User stories
 
@@ -185,26 +155,10 @@ The forms featured on Task Nest are the Sign Up, Log In, and Log Out pages, as w
 
 # Future Features
 
-- Ability to create projects 
-    - Due to my current learning scope, I was unable to implement project creation for this site. The main plan was to create a whole project management app where users could create task lists inside of projects. I was unable to complete this within the three week timeframe and so decided to stick to the task app functionality to reach a useable product. 
-- Kanban board functionality
-    - To implement an added feature to my project, I wanted to add a Kanban board to this app. This would make an agile environment for teams to manage their full projects. This would have required drag and drop functionality within JavaScript to work and I decided early on that this was outside of my MVP and my current ability. 
-- Admin button on home page
-    - I realised when testing my project that superusers would have to add /admin to the end of the URL to access the admin panel. I therefore should have implemented a small admin button on the site for those who could access this aspect of the site.
-- Social account login
-- PDF uploads in comments
-- Team collaboration on lists
-- Light/ dark mode for accessibility
-- Team roles and accessible areas for each role
-- Refinement of hoverable popups
-    - Popups should just appear on the first task on each list, or appear once each time the user logs in.
+I would like to be able to embed links into the description so that people can take a website (for example an item they want for Christmas) and it will navigate to that website.
 
 # Bugs
-Due to this being my first django/database project, I had a range of small bugs and teething issues that needed to be worked through in development.
 
-These included fixing links, url locators and tweaking validation issues.
-
-My main issues came from changing my models and messing up my database. When these errors occured I used our coding coach sessions to remove the old database and added a new one. Then all migrations went through perfectly.
 
 # Manual Testing
 

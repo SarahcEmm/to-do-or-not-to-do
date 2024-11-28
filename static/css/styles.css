@@ -39,8 +39,8 @@ header {
 }
 
 .delete-button button {
-    background-color: #ff6347;   
-    color: white;                
+    background-color: #ff9a00;   
+    color: black;                
     border: none;                
     padding: 5px 10px;           
     cursor: pointer;             
@@ -71,7 +71,7 @@ header {
 }
 
 .logout-button {
-    background-color: #007bff; 
+    background-color: #ff4500; 
     color: white;               
     border: none;               
     padding: 10px 15px;         
@@ -82,7 +82,7 @@ header {
 
 
 .logout-button:hover {
-    background-color: #0056b3; 
+    background-color: #f57141; 
 }
 
 .message {
@@ -100,9 +100,11 @@ header {
     text-align: center; /* Center the text content */
 }
 
-.message.success {
-    background-color:#FFFAF1;
-}
+    .message.success {
+        background-color: #FFFAF1 !important; /* Force your desired color */
+        color: #333; /* Text color for contrast */
+    }
+
 
 .message.error {
     border-color: #dc3545;

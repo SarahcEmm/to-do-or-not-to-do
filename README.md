@@ -29,10 +29,10 @@ I also did not want to use pictures or fancy graphics as this can be distract fr
 
 I knew very early on how I wanted the application to look. It was literally a box with the information contained within it. I wanted to make it a simple colour as to not distract the user and for the Django built in functions to do a lot of the donkey work for me. 
 
-![alt text]("staticfiles/admin/img/New Wireframe 1.png")
-![alt text]("staticfiles/admin/img/New Wireframe 2.png")
-![alt text]("staticfiles/admin/img/New Wireframe 3.png")
-![alt text]("staticfiles/admin/img/New Wireframe 4.png")
+![alt text]("staticfiles/admin/img/NewWireframe1.png")
+![alt text]("staticfiles/admin/img/NewWireframe2.png")
+![alt text]("staticfiles/admin/img/NewWireframe3.png")
+![alt text]("staticfiles/admin/img/NewWireframe4.png")
 
 
 

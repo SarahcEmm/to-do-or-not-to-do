@@ -17,7 +17,7 @@
     {% endif %}
 </div>
 <div class="search-wrapper">
-    <a href="{% url 'task-create' %}">Add Task</a>
+    <a class="add-button" href="{% url 'task-create' %}">Add Task</a>
     <form method="GET">
         <input type="text" placeholder="Find Task" name="'search-area" value="{{search_input}}">
         <input type="submit" value="Search">

@@ -3,7 +3,8 @@
 ### Deployed Link
 https://againagain-a184e9f92a54.herokuapp.com/login/?next=/
 
-![Overview](https://sarahcemm.github.io/to-do-or-not-to-do/)
+![Website](staticfiles/admin/js/website.png)
+
 
 ## Project description
 

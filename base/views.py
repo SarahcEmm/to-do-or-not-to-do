@@ -104,20 +104,18 @@ class TaskUpdate(LoginRequiredMixin, UpdateView):
         # Restrict updates to tasks owned by the logged-in user
         return Task.objects.filter(user=self.request.user)
 
-
-# Task delete
+# Task Delete
 class TaskDelete(LoginRequiredMixin, DeleteView):
     model = Task
     context_object_name = 'task'
     success_url = reverse_lazy('tasks')
 
     def get_queryset(self):
-        # Delete for one user only
         return Task.objects.filter(user=self.request.user)
 
-    def delete(self, request, *args, **kwargs):
-        messages.success(request, 'You have successfully deleted the task!')
-        return super(TaskDelete, self).delete(request, *args, **kwargs)
+    def get_success_url(self):
+        messages.success(self.request, 'You have successfully deleted the task!')
+        return super().get_success_url()
 
 
 # Task creation

@@ -46,7 +46,7 @@ header {
 }
 
 /* Delete button */
-.delete-button button {
+button {
     background-color: #ff9a00;   
     color: black;                
     border: none;                
@@ -57,7 +57,22 @@ header {
 }
 
 /* Hover effect for the delete button */
-.delete-button button:hover {
+button:hover {
+    background-color: #ff4500;   
+}
+
+.button {
+    background-color: #ff9a00;   
+    color: black;                
+    border: none;                
+    padding: 5px 10px;           
+    cursor: pointer;             
+    border-radius: 4px;          
+    transition: background-color 0.3s ease; 
+}
+
+/* Hover effect for the delete button */
+.button:hover {
     background-color: #ff4500;   
 }
 
@@ -88,7 +103,7 @@ header {
 
 /* Logout button */
 logout-button {
-    background-color: #38a138; 
+    background: #38a138; 
     color: black;               
     border: none;               
     padding: 10px 15px;         

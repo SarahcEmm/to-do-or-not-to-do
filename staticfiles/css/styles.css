@@ -101,21 +101,6 @@ button:hover {
     padding: 20px;
 }
 
-/* Logout button */
-logout-button {
-    background: #38a138; 
-    color: black;               
-    border: none;               
-    padding: 10px 15px;         
-    cursor: pointer;           
-    border-radius: 4px;         
-    transition: background-color 0.3s ease; 
-}
-/* Hover logout button */
-.logout-button:hover {
-    background-color: #f57141; 
-}
-
 /*  success/error */
 .message {
     position: fixed; 

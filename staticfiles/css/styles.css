@@ -100,6 +100,18 @@ button:hover {
 .add-button {
     padding: 20px;
 }
+.add-button > a {
+    background-color: #ff9a00;   
+    color: black;                
+    border: none;                
+    padding: 5px 10px;           
+    cursor: pointer;             
+    border-radius: 4px;          
+    transition: background-color 0.3s ease; 
+  }
+  .add-button > a:hover {
+    background-color: #ff4500;   
+}
 
 /*  success/error */
 .message {

@@ -55,24 +55,23 @@ class TaskList(LoginRequiredMixin, ListView):
     context_object_name = 'tasks'
 
     def get_queryset(self):
-        # Fetch tasks for the logged-in user
+        # Fetch tasks only for the logged-in user
         user = self.request.user
         queryset = Task.objects.filter(user=user)
-
-        # Apply search filter if 'search-area' parameter is present
-        search_input = self.request.GET.get('search-area') or ''
-        if search_input:
-            queryset = queryset.filter(title__icontains=search_input)
 
         return queryset
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
 
-        # Search area
-        search_input = self.request.GET.get('search-area') or ''
-        context['search_input'] = search_input
+        # Number of incomplete tasks
+        incomplete_tasks = Task.objects.filter(
+            user=self.request.user,
+            complete=False
+        )
+        context['count'] = incomplete_tasks.count()
 
+        return context
         # Number of incomplete tasks
         incomplete_tasks = Task.objects.filter(
             user=self.request.user,
